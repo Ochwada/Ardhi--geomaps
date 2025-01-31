@@ -1,0 +1,11 @@
+# Set default behavior for all files
+* text=auto
+
+# Explicitly declare text files that should always have LF line endings on checkout
+*.json text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+
+# Declare binary files
+*.png binary
+*.jpg binary
