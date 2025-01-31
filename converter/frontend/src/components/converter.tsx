@@ -31,7 +31,7 @@ const IndexPage = () => {
             return;
         }
 
-        // ✅ Ensure input is a valid Feature or Geometry
+        // Ensure input is a valid Feature or Geometry
         let validGeojson: GeoJSON.Geometry | GeoJSON.Feature;
         if (geojson.type === "FeatureCollection") {
             if (geojson.features.length === 0) {
@@ -48,7 +48,7 @@ const IndexPage = () => {
             return;
         }
 
-        // ✅ Convert to WKT (only Geometry or Feature allowed)
+        //  Convert to WKT (only Geometry or Feature allowed)
         let convertedText: string;
         if (outputFormat === "WKT") {
             convertedText = geojsonToWkt(validGeojson);
@@ -56,7 +56,7 @@ const IndexPage = () => {
             const wkt = geojsonToWkt(validGeojson);
             const newGeojson = wktToGeojson(wkt);
 
-            // ✅ Ensure newGeojson is a FeatureCollection
+            //  Ensure newGeojson is a FeatureCollection
             let featureCollectionData: GeoJSON.FeatureCollection;
             if (newGeojson.type === "FeatureCollection") {
                 featureCollectionData = newGeojson;
@@ -145,8 +145,9 @@ const IndexPage = () => {
             <button className="border border-green-500 px-2 my-3" onClick={handleConvert}>Convert</button>
             {convertedData && (
                 <div>
-                   {/*  <pre>{convertedData}</pre> */}
                     <button  className="border border-blue-500 px-2" onClick={handleDownload}>Download {outputFormat} File</button>
+                    <pre>{convertedData}</pre> 
+                    
                 </div>
             )}
         </div>
